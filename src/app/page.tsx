@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Linkedin, Mail, Code, Palette, Zap } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Code } from 'lucide-react';
 
 export const metadata = {
   title: 'darveloper.her - Coming Soon',
