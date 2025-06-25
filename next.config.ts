@@ -43,22 +43,22 @@ const nextConfig: NextConfig = {
     ]
   },
   
-  // Redirect www to non-www (optional)
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.darveloper.xyz',
-          },
-        ],
-        destination: 'https://darveloper.xyz/:path*',
-        permanent: true,
-      },
-    ]
-  },
+  // REMOVE THE REDIRECTS SECTION FOR NOW
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/:path*',
+  //       has: [
+  //         {
+  //           type: 'host',
+  //           value: 'www.darveloper.xyz',
+  //         },
+  //       ],
+  //       destination: 'https://darveloper.xyz/:path*',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
   
   // Enable experimental features for better performance
   experimental: {
