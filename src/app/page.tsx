@@ -2,11 +2,18 @@
 
 import React, { useState } from 'react';
 import { Instagram, Linkedin, Mail, Code, Sun, Moon } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
 const ComingSoonPage = () => {
   const [isDark, setIsDark] = useState(false);
   
-  const toggleDarkMode = () => setIsDark(!isDark);
+  const toggleDarkMode = () => {
+  const newMode = !isDark;
+  setIsDark(newMode);
+  
+  // Track the mode change
+  analytics.darkModeToggle(newMode ? 'dark' : 'light');
+};
   
   // Color scheme based on modern dark mode best practices
   const colors = {
@@ -146,6 +153,7 @@ const ComingSoonPage = () => {
           <div className="flex justify-center space-x-6">
             <a 
               href="mailto:hello@darveloper.xyz"
+              onClick={() => analytics.emailClick()}
               className="inline-flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50"
               style={{ 
                 backgroundColor: colors.buttonBg,
@@ -158,7 +166,8 @@ const ComingSoonPage = () => {
             </a>
             
             <a 
-              href="https://instagram.com/darveloper.her" 
+              href="https://instagram.com/darveloper.her"
+              onClick={() => analytics.instagramClick()} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50"
@@ -173,7 +182,8 @@ const ComingSoonPage = () => {
             </a>
             
             <a 
-              href="https://www.linkedin.com/in/darlyze-calixte-0501a8117/" 
+              href="https://www.linkedin.com/in/darlyze-calixte-0501a8117/"
+              onClick={() => analytics.linkedinClick()} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-opacity-50"

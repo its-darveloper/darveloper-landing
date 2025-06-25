@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Analytics from '@/components/Analytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -48,8 +49,7 @@ export const metadata: Metadata = {
     canonical: 'https://darveloper.xyz',
   },
   verification: {
-    google: 'your-google-verification-code-here',
-    // Add other verification codes as needed
+    // Already verified via auto-verification
   },
   category: 'technology',
 }
@@ -93,7 +93,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2D4A3E" />
         <meta name="msapplication-TileColor" content="#2D4A3E" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{children}<Analytics /></body>
     </html>
   )
 }
